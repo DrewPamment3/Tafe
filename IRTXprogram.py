@@ -1,5 +1,5 @@
 #!/bin/python3.8
-# version 1.5
+# version 2
 # This program provides a rudimentary automation of IRTX
 import IRTxModulesGit
 
@@ -14,7 +14,7 @@ def menu():
             IRTxModulesGit.portscan()
         elif choice == '2':
             IRTxModulesGit.dvwa_brute()
-        # elif choice == '3':
+        elif choice == '3':
             IRTxModulesGit.unreal_backdoor()
         elif choice == '0':
             print('Goodbye...')
