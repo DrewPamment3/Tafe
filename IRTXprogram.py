@@ -15,7 +15,7 @@ def menu():
         elif choice == '2':
             IRTxModulesGit.dvwa_brute()
         # elif choice == '3':
-            IRTxModulesGit.unrealirc_backdoor()
+            IRTxModulesGit.unreal_backdoor()
         elif choice == '0':
             print('Goodbye...')
             input('Press <ENTER> to quit.')
