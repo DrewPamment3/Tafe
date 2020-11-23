@@ -1,5 +1,5 @@
 #!/bin/python3.8
-# version 1.3
+# version 1.5
 # This program provides a rudimentary automation of IRTX
 import IRTxModulesGit
 
@@ -15,7 +15,7 @@ def menu():
         elif choice == '2':
             IRTxModulesGit.dvwa_brute()
         # elif choice == '3':
-            # Brute_Juiceshop()
+            IRTxModulesGit.unrealirc_backdoor()
         elif choice == '0':
             print('Goodbye...')
             input('Press <ENTER> to quit.')
